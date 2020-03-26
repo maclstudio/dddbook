@@ -1,0 +1,25 @@
+
+SERVICE_NAME: dddbook
+API_VERSION: 1.0
+#app
+server:
+    port: 8080
+    servlet:
+      context-path: /${SERVICE_NAME}/${API_VERSION}
+spring:
+  profiles:
+    active: local
+  mvc:
+    throw-exception-if-no-handler-found: true
+  resources:
+    add-mappings: false
+  application:
+    name: ${SERVICE_NAME}
+
+logging:
+  pattern:
+    console: "%date{yyyy-MM-dd HH:mm:ss.SSS,Asia/Shanghai} %X{requestId}-%X{userId} %highlight(%-5level) %logger{36} : %m%n%wEx"
+    file: "%date{yyyy-MM-dd HH:mm:ss.SSS,Asia/Shanghai} %X{requestId}-%X{userId} %highlight(%-5level) %logger{36} : %m%n%wEx"
+
+
+
